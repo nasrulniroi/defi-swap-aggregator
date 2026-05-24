@@ -2,105 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --background: #0f0f23;
-    --foreground: #e2e8f0;
-    --card: #1a1a3e;
-    --card-foreground: #e2e8f0;
-    --primary: #818cf8;
-    --primary-foreground: #ffffff;
-    --secondary: #252547;
-    --secondary-foreground: #e2e8f0;
-    --muted: #2d2d5e;
-    --muted-foreground: #94a3b8;
-    --accent: #818cf8;
-    --accent-foreground: #ffffff;
-    --destructive: #ef4444;
-    --border: #2d2d5e;
-    --input: #2d2d5e;
-    --ring: #818cf8;
-    --radius: 0.75rem;
-  }
-
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-surface text-foreground antialiased;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
+:root {
+  --bg: #0f0f23;
+  --fg: #e2e8f0;
+  --primary: #818cf8;
+  --primary-dark: #6366f1;
+  --surface: #1a1a2e;
+  --surface2: #252540;
+  --border: #2d2d4a;
+  --muted: #94a3b8;
+  --ok: #34d399;
+  --warn: #fbbf24;
+  --err: #f87171;
 }
 
-@layer utilities {
-  .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-400 to-primary-600;
-  }
-
-  .glass {
-    @apply bg-surface-card/80 backdrop-blur-xl border border-surface-border;
-  }
-
-  .glass-hover {
-    @apply hover:bg-surface-elevated/90 hover:border-primary-400/30 transition-all duration-200;
-  }
-
-  .glow-border {
-    @apply border border-primary-400/30 shadow-glow;
-  }
-
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+.card {
+  background: var(--surface);
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  padding: 1.5rem;
 }
 
-::-webkit-scrollbar-track {
-  background: #1a1a3e;
+.btn {
+  background: var(--primary);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+  border: none;
+  cursor: pointer;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #2d2d5e;
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #818cf8;
-}
-
-/* Animations */
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.animate-shimmer {
-  background: linear-gradient(
-    90deg,
-    #1a1a3e 25%,
-    #252547 50%,
-    #1a1a3e 75%
-  );
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-/* Chart.js overrides */
-.chart-container canvas {
-  border-radius: 8px;
+.btn:hover {
+  background: var(--primary-dark);
+  opacity: 0.9;
 }
